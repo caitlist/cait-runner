@@ -1,0 +1,456 @@
+Existing handles in sheet: 1197
+
+[1] Scraping 16 HIE hashtags (20 posts each)...
+  #hiemom... [36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:24.953Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:24.956Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:25.003Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:25.006Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:25.558Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:25.706Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:25.711Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:25.811Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:29.733Z [32mINFO[39m  Scraped 20 results. 27/20 for https://www.instagram.com/explore/tags/hiemom
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:29.734Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hiemom
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:30.093Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:30.213Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":3916,"requestsFinishedPerMinute":13,"requestsFailedPerMinute":0,"requestTotalDurationMillis":3916,"requestsTotal":1,"crawlerRuntimeMillis":4496}[39m
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:30.215Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> 2026-04-02T05:16:30.217Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:YACGCpi87XChTnXT3][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+5 new
+  #hiewarrior... [36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> Status: RUNNING, Message: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:39.729Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:39.732Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:39.786Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:39.787Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:40.283Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:40.477Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:40.481Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:40.597Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:46.621Z [32mINFO[39m  Scraped 20 results. 30/20 for https://www.instagram.com/explore/tags/hiewarrior
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:46.623Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hiewarrior
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:46.701Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:46.843Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":6025,"requestsFinishedPerMinute":9,"requestsFailedPerMinute":0,"requestTotalDurationMillis":6025,"requestsTotal":1,"crawlerRuntimeMillis":6356}[39m
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:46.844Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> Status: RUNNING, Message: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> 2026-04-02T05:16:46.846Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:ebjShTINjkzgFG0Ui][0m -> Status: SUCCEEDED, Message: Scraper finished
+10 new
+  #hieawareness... [36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> Status: RUNNING, Message: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:57.043Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:57.046Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:57.098Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:57.100Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:58.083Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:58.362Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:58.372Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:16:58.585Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:17:02.971Z [32mINFO[39m  Scraped 20 results. 27/20 for https://www.instagram.com/explore/tags/hieawareness
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:17:02.973Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hieawareness
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:17:03.036Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:17:03.156Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":4376,"requestsFinishedPerMinute":13,"requestsFailedPerMinute":0,"requestTotalDurationMillis":4376,"requestsTotal":1,"crawlerRuntimeMillis":4765}[39m
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:17:03.158Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> 2026-04-02T05:17:03.159Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:qoJGCy8cILeK8cvkk][0m -> Status: SUCCEEDED, Message: Scraper finished
+10 new
+  #hiestrong... [36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> Status: RUNNING, Message: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:13.534Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:13.537Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:13.595Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:13.596Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:14.145Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:14.258Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:14.263Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:14.433Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:20.775Z [32mINFO[39m  Scraped 20 results. 30/20 for https://www.instagram.com/explore/tags/hiestrong
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:20.777Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hiestrong
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:20.872Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:21.119Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":6367,"requestsFinishedPerMinute":9,"requestsFailedPerMinute":0,"requestTotalDurationMillis":6367,"requestsTotal":1,"crawlerRuntimeMillis":6851}[39m
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:21.121Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> 2026-04-02T05:17:21.122Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:3Cj9hP2EpMuwhAcNi][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+9 new
+  #hiebaby... [36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:30.586Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:30.589Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:30.635Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:30.637Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:31.413Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:31.548Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:31.552Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:31.713Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:36.588Z [32mINFO[39m  Scraped 20 results. 30/20 for https://www.instagram.com/explore/tags/hiebaby
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:36.590Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hiebaby
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:36.688Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:36.864Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":4891,"requestsFinishedPerMinute":11,"requestsFailedPerMinute":0,"requestTotalDurationMillis":4891,"requestsTotal":1,"crawlerRuntimeMillis":5298}[39m
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:36.866Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> 2026-04-02T05:17:36.867Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:USVpyz3GHnP8dL0XH][0m -> Status: SUCCEEDED, Message: Scraper finished
+10 new
+  #hiefamily... [36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:47.349Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:47.352Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:47.482Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:47.484Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:48.245Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:48.361Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:48.366Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:48.491Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:51.840Z [32mINFO[39m  Scraped 20 results. 24/20 for https://www.instagram.com/explore/tags/hiefamily
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:51.842Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hiefamily
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:51.918Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:52.038Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":3358,"requestsFinishedPerMinute":16,"requestsFailedPerMinute":0,"requestTotalDurationMillis":3358,"requestsTotal":1,"crawlerRuntimeMillis":3667}[39m
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:52.040Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> 2026-04-02T05:17:52.042Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:mXJBvyEgXb9cm5Fol][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+9 new
+  #hiesurvivor... [36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> Status: RUNNING, Message: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:01.033Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:01.035Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:01.075Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:01.077Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:01.569Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:01.689Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:01.693Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:02.002Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:11.390Z [32mINFO[39m  Scraped 20 results. 30/20 for https://www.instagram.com/explore/tags/hiesurvivor
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:11.391Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hiesurvivor
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:11.447Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:11.647Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":9361,"requestsFinishedPerMinute":6,"requestsFailedPerMinute":0,"requestTotalDurationMillis":9361,"requestsTotal":1,"crawlerRuntimeMillis":9948}[39m
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:11.648Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> Status: RUNNING, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+[36m[apify.instagram-hashtag-scraper runId:WgJu0wjM0NGw6Fvf5][0m -> 2026-04-02T05:18:11.650Z [32mINFO[39m  [Status message]: Scraper finished
+10 new
+  #hieparent... [36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> Status: RUNNING, Message: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:20.794Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:20.796Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:20.846Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:20.847Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:21.423Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:21.565Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:21.572Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:21.817Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:24.326Z [32mINFO[39m  Scraped 2 results. 2/20 for https://www.instagram.com/explore/tags/hieparent
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:24.326Z [32mINFO[39m  no more unique items, finishing https://www.instagram.com/explore/tags/hieparent
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:24.386Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:24.494Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":2507,"requestsFinishedPerMinute":21,"requestsFailedPerMinute":0,"requestTotalDurationMillis":2507,"requestsTotal":1,"crawlerRuntimeMillis":2915}[39m
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:24.495Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> 2026-04-02T05:18:24.495Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:d91XIfyvECYKuPyVR][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+1 new
+  #hienewborn... [36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:33.567Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:33.569Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:33.631Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:33.632Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:34.285Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:34.419Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:34.427Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:34.531Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:37.082Z [32mINFO[39m  Scraped 2 results. 2/20 for https://www.instagram.com/explore/tags/hienewborn
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:37.085Z [32mINFO[39m  no more unique items, finishing https://www.instagram.com/explore/tags/hienewborn
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:37.138Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:37.256Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":2533,"requestsFinishedPerMinute":21,"requestsFailedPerMinute":0,"requestTotalDurationMillis":2533,"requestsTotal":1,"crawlerRuntimeMillis":2822}[39m
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:37.258Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> 2026-04-02T05:18:37.260Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:f34K9F9gMywe3qml6][0m -> Status: SUCCEEDED, Message: Scraper finished
+2 new
+  #hiejourney... [36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:47.599Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:47.602Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:47.774Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:47.775Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:48.392Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:48.511Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:48.516Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:48.647Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:53.450Z [32mINFO[39m  Scraped 20 results. 25/20 for https://www.instagram.com/explore/tags/hiejourney
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:53.451Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hiejourney
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:53.528Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:53.623Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":4794,"requestsFinishedPerMinute":12,"requestsFailedPerMinute":0,"requestTotalDurationMillis":4794,"requestsTotal":1,"crawlerRuntimeMillis":5101}[39m
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:53.623Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> 2026-04-02T05:18:53.625Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:X1Y32HvpjFYDS3sFe][0m -> Status: SUCCEEDED, Message: Scraper finished
+3 new
+  #hypoxicischemicencephalopathy... [36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:03.966Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:03.969Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:04.043Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:04.044Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:04.639Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:04.807Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:04.812Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:04.937Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:09.273Z [32mINFO[39m  Scraped 20 results. 27/20 for https://www.instagram.com/explore/tags/hypoxicischemicencephalopathy
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:09.274Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hypoxicischemicencephalopathy
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:09.348Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:09.482Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":4336,"requestsFinishedPerMinute":13,"requestsFailedPerMinute":0,"requestTotalDurationMillis":4336,"requestsTotal":1,"crawlerRuntimeMillis":4663}[39m
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:09.484Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> 2026-04-02T05:19:09.486Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:auWAIqOSshpxltHiy][0m -> Status: SUCCEEDED, Message: Scraper finished
+4 new
+  #hypoxicischemic... [36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:19.508Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:19.511Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:19.837Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:19.838Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:20.504Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:20.629Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:20.634Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:20.741Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:24.196Z [32mINFO[39m  Scraped 14 results. 14/20 for https://www.instagram.com/explore/tags/hypoxicischemic
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:24.196Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/hypoxicischemic
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:24.245Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:24.352Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":3429,"requestsFinishedPerMinute":16,"requestsFailedPerMinute":0,"requestTotalDurationMillis":3429,"requestsTotal":1,"crawlerRuntimeMillis":3713}[39m
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:24.353Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> 2026-04-02T05:19:24.353Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:ySSyGOlvavoldrz3C][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+8 new
+  #neonatalbraininjury... [36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:33.466Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:33.468Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:33.588Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:33.589Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:34.146Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:34.258Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:34.263Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:34.358Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:39.289Z [32mINFO[39m  Scraped 20 results. 30/20 for https://www.instagram.com/explore/tags/neonatalbraininjury
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:39.306Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/neonatalbraininjury
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:39.326Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:39.449Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":4907,"requestsFinishedPerMinute":12,"requestsFailedPerMinute":0,"requestTotalDurationMillis":4907,"requestsTotal":1,"crawlerRuntimeMillis":5181}[39m
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:39.451Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> 2026-04-02T05:19:39.454Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:rf83i7Z4g1t0HNH1e][0m -> Status: SUCCEEDED, Message: Scraper finished
+4 new
+  #birthinjurymom... [36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:50.125Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:50.127Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:50.198Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:50.200Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:50.905Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:51.031Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:51.036Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:51.174Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:53.719Z [32mINFO[39m  Scraped 4 results. 4/20 for https://www.instagram.com/explore/tags/birthinjurymom
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:53.721Z [32mINFO[39m  no more unique items, finishing https://www.instagram.com/explore/tags/birthinjurymom
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:53.801Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:53.898Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":2531,"requestsFinishedPerMinute":21,"requestsFailedPerMinute":0,"requestTotalDurationMillis":2531,"requestsTotal":1,"crawlerRuntimeMillis":2840}[39m
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:53.902Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> 2026-04-02T05:19:53.903Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:n1o1WdMjlRmnydM2T][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+3 new
+  #birthinjuryawareness... [36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:03.001Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:03.004Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:03.073Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:03.075Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:03.922Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:04.233Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:04.245Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:04.392Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:04.859Z [32mINFO[39m  backing off[90m {"statusCode":429,"waitBeforeRetryMS":1008.7239736656198}[39m
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:10.843Z [32mINFO[39m  Scraped 20 results. 30/20 for https://www.instagram.com/explore/tags/birthinjuryawareness
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:10.845Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/birthinjuryawareness
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:10.905Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:11.005Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":6448,"requestsFinishedPerMinute":9,"requestsFailedPerMinute":0,"requestTotalDurationMillis":6448,"requestsTotal":1,"crawlerRuntimeMillis":6749}[39m
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:11.010Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> 2026-04-02T05:20:11.011Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:c2BWGSC5J2PabpJdS][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+14 new
+  #neonatalencephalopathy... [36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:20.873Z ACTOR: Pulling container image of build HPQ3ArXylt998Trz4 from registry.
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:20.875Z ACTOR: Creating container.
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:21.342Z ACTOR: Starting container.
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:21.344Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:22.123Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:22.261Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:22.266Z [32mINFO[39m  [Status message]: Starting the scraper with 1 direct URL(s)
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:22.393Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:28.602Z [32mINFO[39m  Scraped 20 results. 30/20 for https://www.instagram.com/explore/tags/neonatalencephalopathy
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:28.604Z [32mINFO[39m  Hashtag scraper is limited to one page for free users, finishing https://www.instagram.com/explore/tags/neonatalencephalopathy
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:28.667Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:28.739Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":6203,"requestsFinishedPerMinute":9,"requestsFailedPerMinute":0,"requestTotalDurationMillis":6203,"requestsTotal":1,"crawlerRuntimeMillis":6468}[39m
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:28.741Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 1 requests: 1 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> 2026-04-02T05:20:28.742Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-hashtag-scraper runId:48djwRUtuC8uTj6BR][0m -> Status: SUCCEEDED, Message: Finished! Total 1 requests: 1 succeeded, 0 failed.
+3 new
+
+  Total candidates: 105
+
+[2] Scraping 105 profiles...
+  Batch 1/3... [36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:38.499Z ACTOR: Pulling container image of build VzkddgVPC8iUogxeg from registry.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:38.502Z ACTOR: Creating container.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:38.552Z ACTOR: Starting container.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:38.554Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:39.513Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:39.679Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:39.687Z [32mINFO[39m  [Status message]: Starting the scraper with 50 direct URL(s)
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:39.930Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:41.552Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:41.554Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"JNSqOkEbsK9KoT4","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=cfremd","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:41.899Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:41.901Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"Mf7luCthpVl7zkq","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=hazelchingai","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.214Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.216Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"oDuhhlhmQIXCu45","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=samantha.handy.10.19","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.407Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.409Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"JcOZzrX2BKJeLAM","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=nursekellysnotes","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.413Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.415Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"19ynCTfBYFDATNV","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=pregnancy_to_parenthood","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.572Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.574Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"E2hWVX05WA1HiDf","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=unlugarllamadoholanda","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.720Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:42.722Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"EzH0RSeeoj4y8T2","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=labella7117","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:43.714Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:43.716Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"LfP28PemD4gO4df","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=ufocorpse","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:43.736Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:43.738Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"HxnJGQAWYi93xMb","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=empoweringnicuparents","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:43.868Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:43.870Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"s00oi91EgUE8J5H","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=myendojourney4","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:44.270Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Detected a session error, rotating session...
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:44.272Z The proxy server rejected the request with status code 595 (ECONNRESET)
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:44.274Z     at ClientRequest.<anonymous> (file:///usr/src/app/dist/984.index.js:16244:109)
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:44.276Z     at ClientRequest.<anonymous> (file:///usr/src/app/dist/984.index.js:16244:109)[90m {"id":"y9sYZ6tyBMQHaEr","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=sjepson31","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:47.250Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:47.252Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"19ynCTfBYFDATNV","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=pregnancy_to_parenthood","retryCount":2}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:47.553Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:47.555Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"JNSqOkEbsK9KoT4","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=cfremd","retryCount":2}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:48.833Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:48.835Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"LfP28PemD4gO4df","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=ufocorpse","retryCount":2}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:50.101Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. The HTTP/2 stream has been early terminated
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> Status: RUNNING, Message: Crawled 37/50 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:50.103Z     at ClientRequest.<anonymous> (file:///usr/src/app/dist/984.index.js:16244:109)[90m {"id":"0MEgC0OsQz27nZT","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=oliversodyssey1","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:55.053Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:55.055Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"neSTYS2amgNKvy3","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=everetts.embrace","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:56.139Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> Status: RUNNING, Message: Crawled 44/50 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:20:56.141Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"0MEgC0OsQz27nZT","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=oliversodyssey1","retryCount":2}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:10.184Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. request timed out after 30 seconds.[90m {"id":"Cq6FJ5xFSWwW1vb","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=themommyextraordinaire","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> Status: RUNNING, Message: Crawled 47/50 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:10.186Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. request timed out after 30 seconds.[90m {"id":"g2hHoYRucfXy4NE","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=katie_spinks_","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:11.498Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Proxy responded with 595 ECONNRESET: 0 bytes.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:11.500Z
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:11.502Z Below is the first 100 bytes of the proxy response body:
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:11.503Z
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:11.505Z     at Request._beforeError (file:///usr/src/app/dist/984.index.js:15760:21)[90m {"id":"pg4tjRU3Ce3ANQs","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=cerebralpalsyfamilyhelp","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> Status: RUNNING, Message: Crawled 48/50 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:17.227Z [32mINFO[39m  Restricted profile https://www.instagram.com/cerebralpalsyfamilyhelp/ resolved with ID 48535820697
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:28.076Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:28.142Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":50,"requestsFailed":0,"retryHistogram":[34,12,4],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":3892,"requestsFinishedPerMinute":62,"requestsFailedPerMinute":0,"requestTotalDurationMillis":194618,"requestsTotal":50,"crawlerRuntimeMillis":48444}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:28.144Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 50 requests: 50 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> 2026-04-02T05:21:28.146Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-scraper runId:4H2tbq4YWMNHaANkc][0m -> Status: SUCCEEDED, Message: Scraper finished
+50 back
+  Batch 2/3... [36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:43.881Z ACTOR: Pulling container image of build VzkddgVPC8iUogxeg from registry.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:43.884Z ACTOR: Creating container.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:43.960Z ACTOR: Starting container.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:43.961Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:44.626Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:44.751Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:44.762Z [32mINFO[39m  [Status message]: Starting the scraper with 50 direct URL(s)
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:44.947Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.040Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.040Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"WD11IqXQfJifIew","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=_ellisinjurylaw","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.391Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.394Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"J1kIuilN05A75p6","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=mohamad.ghaderiinasab_ot","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.641Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.641Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"oJRV6InxKRh4Jb5","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=birth_injury","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.976Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:47.977Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"k91E0hwZebzF35d","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=mightyhaydenriley","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.180Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.181Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"bN7Ek3jsYgIPrnJ","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=vasiliy_bryukhov","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.247Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.247Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"8zqA72XpEQQqzJu","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=vi.nano","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.352Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.353Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"FrbxmFh3nEmNnOl","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=extrachromozoe","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.355Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.356Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"9DbihuzXLHOOORF","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=theamazinglifeoferic","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.386Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.386Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"AlsYUoJpQ3n5JQy","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=theyostlegalgroup","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.517Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.517Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"2qtC7ZPwvIy4SAL","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=uclschoolofpharmacy","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.588Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.589Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"wZsoV3qm1dc1bOk","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=remarkable_little_robinson","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.649Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.650Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"OfKeRf17BlJ3ToE","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=chronically_tyger","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.804Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:48.805Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"PE3ti3iFdB3Vumn","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=lotsofbotts","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:51.480Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:51.480Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"H3yXtHZbVG8jUSo","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=woclleydonllc","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:53.331Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:53.332Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"FrbxmFh3nEmNnOl","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=extrachromozoe","retryCount":2}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:53.669Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> Status: RUNNING, Message: Crawled 43/50 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:21:53.669Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"oJRV6InxKRh4Jb5","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=birth_injury","retryCount":2}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:22:00.221Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> Status: RUNNING, Message: Crawled 48/50 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:22:00.222Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"FrbxmFh3nEmNnOl","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=extrachromozoe","retryCount":3}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> Status: RUNNING, Message: Crawled 49/50 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:22:15.213Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. request timed out after 30 seconds.[90m {"id":"OFwhFZVnT81iP81","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=ripkalaw","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:22:22.313Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:22:22.382Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":50,"requestsFailed":0,"retryHistogram":[35,13,1,1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":3379,"requestsFinishedPerMinute":80,"requestsFailedPerMinute":0,"requestTotalDurationMillis":168947,"requestsTotal":50,"crawlerRuntimeMillis":37613}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:22:22.383Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 50 requests: 50 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> Status: RUNNING, Message: Scraper finished
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> 2026-04-02T05:22:22.383Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-scraper runId:qflwS5FIFjnc3MmuO][0m -> Status: SUCCEEDED, Message: Scraper finished
+50 back
+  Batch 3/3... [36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:35.870Z ACTOR: Pulling container image of build VzkddgVPC8iUogxeg from registry.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:35.872Z ACTOR: Creating container.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:35.915Z ACTOR: Starting container.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:35.916Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:36.497Z [32mINFO[39m  System info[90m {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Linux","nodeVersion":"v22.22.1"}[39m
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:36.612Z [32mINFO[39m  Results Limit [object Object], ACTOR_MAX_PAID_DATASET_ITEMS
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:36.619Z [32mINFO[39m  [Status message]: Starting the scraper with 5 direct URL(s)
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> Status: RUNNING, Message: Starting the crawler.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:36.760Z [32mINFO[39m [33m CheerioCrawler:[39m Starting the crawler.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:43.315Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> Status: RUNNING, Message: Crawled 4/5 pages, 0 failed requests, desired concurrency 52.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:43.316Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"n8Sb6ZmPsQYPfPg","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=thebeckerlawfirm","retryCount":1}[39m
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:48.584Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:48.584Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"n8Sb6ZmPsQYPfPg","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=thebeckerlawfirm","retryCount":2}[39m
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:52.688Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:52.688Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"n8Sb6ZmPsQYPfPg","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=thebeckerlawfirm","retryCount":3}[39m
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:57.775Z [33mWARN[39m [33m CheerioCrawler:[39m Reclaiming failed request back to the list or queue. Request blocked, retrying it again with different session
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:22:57.775Z     at CheerioCrawler._requestFunctionErrorHandler (file:///usr/src/app/dist/index.js:1:28024)[90m {"id":"n8Sb6ZmPsQYPfPg","url":"https://i.instagram.com/api/v1/users/web_profile_info/?username=thebeckerlawfirm","retryCount":4}[39m
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:23:02.842Z [32mINFO[39m [33m CheerioCrawler:[39m All requests from the queue have been processed, the crawler will shut down.
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:23:02.912Z [32mINFO[39m [33m CheerioCrawler:[39m Final request statistics:[90m {"requestsFinished":5,"requestsFailed":0,"retryHistogram":[4,null,null,null,1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":3314,"requestsFinishedPerMinute":11,"requestsFailedPerMinute":0,"requestTotalDurationMillis":16570,"requestsTotal":5,"crawlerRuntimeMillis":26287}[39m
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:23:02.912Z [32mINFO[39m [33m CheerioCrawler:[39m Finished! Total 5 requests: 5 succeeded, 0 failed.[90m {"terminal":true}[39m
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> Status: RUNNING, Message: Scraper finished
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> 2026-04-02T05:23:02.912Z [32mINFO[39m  [Status message]: Scraper finished
+[36m[apify.instagram-scraper runId:bMWjItSHj8hazATnY][0m -> Status: SUCCEEDED, Message: Scraper finished
+5 back
+  Profiles retrieved: 105
+
+[3] Scoring...
+  Passed:     52
+  Failed:     53
+  No profile: 0
+
+[4] Inserting 52 accounts at row 892 (pushing rows down)...
+  Done. Rows 892-943 inserted.
+
+=== DONE ===
+  Candidates found:  105
+  Passed scoring:    52
+  Inserted at row:   892

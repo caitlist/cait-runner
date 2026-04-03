@@ -1,0 +1,21 @@
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> Status: RUNNING, Message: 
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> 2026-04-02T05:12:41.498Z ACTOR: Pulling container image of build dAH6xChdg8mg0F2Gm from registry.
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> 2026-04-02T05:12:53.589Z ACTOR: Creating container.
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> 2026-04-02T05:12:53.708Z ACTOR: Starting container.
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> 2026-04-02T05:12:53.709Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> 2026-04-02T05:12:55.558Z [32mINFO[39m  System info[90m {"apifyVersion":"3.5.2","apifyClientVersion":"2.20.0","crawleeVersion":"3.15.3","osType":"Linux","nodeVersion":"v22.21.1"}[39m
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> 2026-04-02T05:12:55.566Z [32mINFO[39m  Actor intended for paying users only, please upgrade using https://apify.com/pricing?fpr=7p4wu.
+[36m[apify.instagram-followers-scraper runId:MhidkBhVftcHT4n2v][0m -> Status: SUCCEEDED, Message: 
+Existing handles in sheet: 1197
+
+[1] Scraping up to 500 followers of https://www.instagram.com/hiehelpcenter/...
+  Scraped 1 followers
+  Saved to outputs/followers_hiehelpcenter.json
+
+[2] Filtering new handles...
+  New unique candidates: 0
+
+[3] Scoring 0 candidates...
+  Passed: 0
+  Failed: 0
+No accounts passed scoring.

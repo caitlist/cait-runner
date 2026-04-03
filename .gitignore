@@ -1,0 +1,14 @@
+.env
+.tmp/
+__pycache__/
+autoresearch/
+SCREENSHOTS OF CAIT COMMENTS 2/
+SCREENSHOTS OF CAIT COMMENTS/
+*.pyc
+*.pyo
+outputs/*.csv
+outputs/*.json
+memory/*.md
+!memory/insights.md
+*.json
+service-account*.json
