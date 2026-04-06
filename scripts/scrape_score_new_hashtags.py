@@ -8,6 +8,7 @@ Usage:
   python scripts/scrape_score_new_hashtags.py --batch 1   # Rare Syndromes A+B (34 tags)
   python scripts/scrape_score_new_hashtags.py --batch 2   # Condition-Specific (32 tags)
   python scripts/scrape_score_new_hashtags.py --batch 3   # Broad/General (21 tags)
+  python scripts/scrape_score_new_hashtags.py --batch 4   # Diabetes (T1D, LADA, Rare) (24 tags)
 """
 
 import os, re, time, math, sys, argparse, json
@@ -79,11 +80,28 @@ BATCH_3 = [
     "craniosynostosissurvivor", "metabolicdiseasemom",
 ]
 
-BATCH_MAP = {1: BATCH_1, 2: BATCH_2, 3: BATCH_3}
+# ── BATCH 4: Diabetes — T1D, LADA, rare forms (24 tags) ────────────────────────
+BATCH_4 = [
+    # Device/management (highest signal — only active T1D families use these)
+    "dexcommom", "dexcomkid", "omnipodmom", "omnipodkid", "cgmmom", "loopingmom",
+    # Parent-specific T1D
+    "t1ddad", "t1dparent", "t1dfamily", "t1dkid", "t1dchild",
+    # Diagnosis label variants
+    "juvenilediabetes", "juvenilediabetesmom", "type1mom", "typeonediabetesmom",
+    "t1dwarrior", "t1dstrong", "childhooddiabetes",
+    # Adult / rare forms
+    "ladadiabetes", "ladawarrior",    # slow-onset T1D in adults
+    "modydiabetes",                    # genetic monogenic diabetes
+    "neonataldiabetes",                # extremely rare — newborn-onset, direct qualification
+    "cfrd",                            # cystic fibrosis-related diabetes (CF families)
+    "t2dmom",                          # T2D parent managing condition while raising kids
+]
+
+BATCH_MAP = {1: BATCH_1, 2: BATCH_2, 3: BATCH_3, 4: BATCH_4}
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--batch", type=int, choices=[1, 2, 3], required=True,
-                    help="Which batch to run: 1=Rare Syndromes, 2=Condition-Specific, 3=Broad/General")
+parser.add_argument("--batch", type=int, choices=[1, 2, 3, 4], required=True,
+                    help="Which batch to run: 1=Rare Syndromes, 2=Condition-Specific, 3=Broad/General, 4=Diabetes")
 args = parser.parse_args()
 
 HASHTAGS_TO_SCRAPE = BATCH_MAP[args.batch]
@@ -190,7 +208,9 @@ def assign_category(hashtag):
         return "Autism / Neurodevelopmental"
     if any(k in h for k in ["downsyndrome"]):
         return "Down Syndrome"
-    if any(k in h for k in ["t1d","cfmom","sicklecell"]):
+    if any(k in h for k in ["t1d","dexcom","omnipod","cgmm","looping","juvenilediabetes","typeone","type1","childhooddiabetes","lada","mody","neonataldiabetes","cfrd","t2d"]):
+        return "Type 1 Diabetes / Juvenile"
+    if any(k in h for k in ["cfmom","sicklecell"]):
         return "Chronic Condition"
     if any(k in h for k in ["allergy","eczema","mastcell","autoimmune"]):
         return "Allergy / Immune"

@@ -1,11 +1,12 @@
 """
-runner2.py  —  CAIT Daily Runner  (port 5563)
+runner2.py  —  CAIT Daily Runner  (port 5564)
 
 Comments tab  : editable caption, Regenerate Comment, Done / Skip / Previous
 Validation tab: Approve / Not Valid for Medical Mom DM Outreach
+Email tab     : Open profile + DM Sent for accounts with Status=Emailed
 
 Start : python scripts/runner2.py
-URL   : http://localhost:5563
+URL   : http://localhost:5564
 """
 
 import os, json, time, datetime, threading
@@ -46,7 +47,7 @@ def make_gc():
 
 def open_sheets(gc):
     ss = gc.open_by_key(SHEET_ID)
-    return ss.worksheet("COMMENTS"), ss.worksheet("Medical Mom DM Outreach")
+    return ss.worksheet("COMMENTS"), ss.worksheet("Medical Mom DM Outreach"), ss.worksheet("Email")
 
 def read_comments(ws):
     rows = ws.get_all_values()
@@ -86,6 +87,35 @@ def read_comments(ws):
     col_map = {h: j + 1 for j, h in enumerate(hdrs)}
     return queue, col_map
 
+def read_email(ws):
+    rows = ws.get_all_values()
+    if not rows:
+        return [], {}
+    hdrs = [h.strip() for h in rows[0]]
+    hi   = {h: i for i, h in enumerate(hdrs)}
+
+    def g(row, col):
+        i = hi.get(col)
+        return row[i].strip() if i is not None and i < len(row) else ""
+
+    queue = []
+    for i, row in enumerate(rows[1:], 2):
+        handle = g(row, "Handle").lstrip("@").strip()
+        status = g(row, "Status")
+        if not handle or status != "Emailed":
+            continue
+        ig = g(row, "IG Profile Link") or \
+             "https://www.instagram.com/{}/".format(handle.lower())
+        queue.append({
+            "row":    i,
+            "handle": handle,
+            "ig_link": ig,
+            "email":  g(row, "Emails"),
+            "notes":  g(row, "Notes"),
+        })
+    col_map = {h: j + 1 for j, h in enumerate(hdrs)}
+    return queue, col_map
+
 def read_validation(ws):
     rows = ws.get_all_values()
     if not rows:
@@ -118,9 +148,10 @@ def read_validation(ws):
 # ── Global state ────────────────────────────────────────────────────────────────
 
 gc_client = None
-ws_c = ws_v = None
+ws_c = ws_v = ws_e = None
 cq = []; cc = {}
 vq = []; vc = {}
+eq = []; ec = {}
 
 # ── Routes ──────────────────────────────────────────────────────────────────────
 
@@ -140,8 +171,8 @@ def api_vq():
 def api_reload_cq():
     global cq, cc, ws_c
     try:
-        ws_c, _ = open_sheets(gc_client)
-        cq, cc  = read_comments(ws_c)
+        ws_c, _, _ = open_sheets(gc_client)
+        cq, cc     = read_comments(ws_c)
         return jsonify({"ok": True, "count": len(cq)})
     except Exception as ex:
         return jsonify({"ok": False, "error": str(ex)})
@@ -150,11 +181,31 @@ def api_reload_cq():
 def api_reload_vq():
     global vq, vc, ws_v
     try:
-        _, ws_v = open_sheets(gc_client)
-        vq, vc  = read_validation(ws_v)
+        _, ws_v, _ = open_sheets(gc_client)
+        vq, vc     = read_validation(ws_v)
         return jsonify({"ok": True, "count": len(vq)})
     except Exception as ex:
         return jsonify({"ok": False, "error": str(ex)})
+
+@app.route("/api/eq")
+def api_eq():
+    return jsonify(eq)
+
+@app.route("/api/reload-eq")
+def api_reload_eq():
+    global eq, ec, ws_e
+    try:
+        _, _, ws_e = open_sheets(gc_client)
+        eq, ec     = read_email(ws_e)
+        return jsonify({"ok": True, "count": len(eq)})
+    except Exception as ex:
+        return jsonify({"ok": False, "error": str(ex)})
+
+@app.route("/api/mark-dm-sent", methods=["POST"])
+def api_mark_dm_sent():
+    d = request.json
+    ws_e.update_cell(int(d["row"]), 8, "DM Sent")  # column H
+    return jsonify(ok=True)
 
 @app.route("/api/save-comment", methods=["POST"])
 def api_save_comment():
@@ -286,6 +337,7 @@ textarea.readonly-look{background:#f9f9f9;color:#888}
 <div class="tabs">
   <button class="tab on" id="tC" onclick="goTab('c')">Comments</button>
   <button class="tab"    id="tV" onclick="goTab('v')">Validation</button>
+  <button class="tab"    id="tE" onclick="goTab('e')">Email</button>
 </div>
 <div class="hdr">
   <div class="bar"><div class="fill" id="fill" style="width:0%"></div></div>
@@ -301,9 +353,10 @@ textarea.readonly-look{background:#f9f9f9;color:#888}
 var TAB='c';
 var CQ=[], CDone=new Set(), CIdx=0, COrigs={};
 var VQ=[], VDone=new Set(), VIdx=0, VQLoaded=false;
+var EQ=[], EDone=new Set(), EIdx=0, EQLoaded=false;
 var poll=null;
 
-// Boot: load Comments immediately, then Validation in background
+// Boot: load Comments immediately, then Validation + Email in background
 async function boot(){
   try {
     var cr = await fetch('/api/cq').then(function(r){ return r.json(); });
@@ -321,6 +374,11 @@ async function boot(){
   try {
     var vr = await fetch('/api/vq').then(function(r){ return r.json(); });
     VQ = vr; VQLoaded = true;
+  } catch(err) {}
+  // Load Email silently in background
+  try {
+    var er = await fetch('/api/eq').then(function(r){ return r.json(); });
+    EQ = er; EQLoaded = true;
   } catch(err) {}
 }
 
@@ -350,17 +408,32 @@ function goTab(t){
   TAB = t;
   document.getElementById('tC').classList.toggle('on', t === 'c');
   document.getElementById('tV').classList.toggle('on', t === 'v');
+  document.getElementById('tE').classList.toggle('on', t === 'e');
   if(t === 'c'){ showC(CIdx); return; }
-  if(!VQLoaded){
-    document.getElementById('app').innerHTML =
-      '<div class="card done-card"><p>Loading validation accounts...</p></div>';
-    document.getElementById('pt').textContent = 'Loading...';
-    var chk = setInterval(function(){
-      if(VQLoaded){ clearInterval(chk); showV(VIdx); }
-    }, 300);
-    return;
+  if(t === 'v'){
+    if(!VQLoaded){
+      document.getElementById('app').innerHTML =
+        '<div class="card done-card"><p>Loading validation accounts...</p></div>';
+      document.getElementById('pt').textContent = 'Loading...';
+      var chk = setInterval(function(){
+        if(VQLoaded){ clearInterval(chk); showV(VIdx); }
+      }, 300);
+      return;
+    }
+    showV(VIdx); return;
   }
-  showV(VIdx);
+  if(t === 'e'){
+    if(!EQLoaded){
+      document.getElementById('app').innerHTML =
+        '<div class="card done-card"><p>Loading email accounts...</p></div>';
+      document.getElementById('pt').textContent = 'Loading...';
+      var chk2 = setInterval(function(){
+        if(EQLoaded){ clearInterval(chk2); showE(EIdx); }
+      }, 300);
+      return;
+    }
+    showE(EIdx);
+  }
 }
 
 function prog(){
@@ -612,6 +685,70 @@ function vSkip(idx){
   if(next !== idx) showV(next);
 }
 
+// ── EMAIL TAB ──────────────────────────────────────────────────────────────────
+async function refreshEQ(){
+  try {
+    var r = await fetch('/api/reload-eq').then(function(x){ return x.json(); });
+    if(!r.ok) return;
+    var er = await fetch('/api/eq').then(function(x){ return x.json(); });
+    EQ = er; EDone = new Set(); EIdx = 0; EQLoaded = true;
+    toast('Email refreshed — ' + EQ.length + ' pending');
+    showE(0);
+  } catch(err) { toast('Refresh failed', true); }
+}
+
+function showE(idx){
+  if(EQ.length === 0){ allDone('No accounts to DM yet.'); return; }
+  idx = Math.max(0, Math.min(idx, EQ.length - 1));
+  EIdx = idx; prog();
+  var it = EQ[idx];
+  var done = EDone.has(it.row);
+
+  document.getElementById('app').innerHTML =
+    '<div class="card">' +
+    '<div class="hr2">' +
+      '<div class="hn">@' + e(it.handle) + '</div>' +
+      (done ? '<span class="badge bg">\u2713 DM Sent</span>' : '<span class="badge bo">Emailed</span>') +
+    '</div>' +
+    (it.email ? '<div style="font-size:13px;color:#888;margin-bottom:10px">&#9993; ' + e(it.email) + '</div>' : '') +
+    (it.notes ? '<div style="font-size:12px;color:#aaa;margin-bottom:12px">' + e(it.notes) + '</div>' : '') +
+    '<div style="margin-bottom:14px">' +
+      '<button class="opbtn" onclick="openURL(\'' + e(it.ig_link) + '\')">&#128279; Open Profile &#8599;</button>' +
+    '</div>' +
+    '<div class="brow">' +
+      '<button class="btn green" onclick="eDone(' + idx + ')" ' + (done ? 'disabled' : '') + '>\u2713 DM Sent</button>' +
+      '<button class="btn gray"  onclick="eSkip(' + idx + ')">Skip</button>' +
+    '</div>' +
+    '<div class="brow">' +
+      '<button class="btn gray" onclick="ePrev()" ' + (idx === 0 ? 'disabled' : '') + '>\u2190 Previous</button>' +
+    '</div>' +
+    '<div style="margin-top:8px;text-align:center">' +
+      '<button class="refresh-btn" onclick="refreshEQ()">\u21bb Refresh from sheet</button>' +
+    '</div>' +
+    '</div>';
+}
+
+async function eDone(idx){
+  var it = EQ[idx];
+  var r = await fetch('/api/mark-dm-sent', {method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({row: it.row})});
+  if(!r.ok){ toast('Sheet update failed', true); return; }
+  EDone.add(it.row);
+  toast('DM Sent \u2713 — sheet updated');
+  var next = idx + 1;
+  while(next < EQ.length && EDone.has(EQ[next].row)) next++;
+  if(EQ.length - EDone.size === 0){ prog(); allDone('All DMs sent!'); }
+  else if(next < EQ.length){ showE(next); }
+  else{ var f = EQ.findIndex(function(x){ return !EDone.has(x.row); }); showE(f >= 0 ? f : 0); }
+}
+function ePrev(){ if(EIdx > 0) showE(EIdx - 1); }
+function eSkip(idx){
+  var n = EQ.length, next = (idx + 1) % n, tries = 0;
+  while(EDone.has(EQ[next].row) && tries++ < n) next = (next + 1) % n;
+  if(next !== idx) showE(next);
+}
+
 // ── shared ─────────────────────────────────────────────────────────────────────
 function allDone(msg){
   prog();
@@ -638,16 +775,18 @@ boot();
 # ── Main ────────────────────────────────────────────────────────────────────────
 
 def main():
-    global gc_client, ws_c, ws_v, cq, cc, vq, vc
+    global gc_client, ws_c, ws_v, ws_e, cq, cc, vq, vc, eq, ec
 
     print("Connecting to Google Sheets...")
-    gc_client      = make_gc()
-    ws_c, ws_v     = open_sheets(gc_client)
-    cq, cc         = read_comments(ws_c)
-    vq, vc         = read_validation(ws_v)
+    gc_client          = make_gc()
+    ws_c, ws_v, ws_e   = open_sheets(gc_client)
+    cq, cc             = read_comments(ws_c)
+    vq, vc             = read_validation(ws_v)
+    eq, ec             = read_email(ws_e)
 
     print(f"Comments queue : {len(cq)} accounts")
     print(f"Validation     : {len(vq)} accounts pending")
+    print(f"Email DM queue : {len(eq)} accounts")
     print(f"Opening http://localhost:{PORT} ...")
 
     app.run(host="0.0.0.0", port=PORT, debug=False, use_reloader=False)
