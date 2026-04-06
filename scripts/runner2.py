@@ -437,8 +437,8 @@ function goTab(t){
 }
 
 function prog(){
-  var done = TAB === 'c' ? CDone.size : VDone.size;
-  var tot  = TAB === 'c' ? CQ.length  : VQ.length;
+  var done = TAB === 'c' ? CDone.size : TAB === 'v' ? VDone.size : EDone.size;
+  var tot  = TAB === 'c' ? CQ.length  : TAB === 'v' ? VQ.length  : EQ.length;
   var rem  = tot - done;
   document.getElementById('fill').style.width = (tot > 0 ? done/tot*100 : 0) + '%';
   document.getElementById('pt').textContent =
