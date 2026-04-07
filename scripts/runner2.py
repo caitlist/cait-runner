@@ -203,10 +203,13 @@ def api_reload_eq():
 
 @app.route("/api/mark-dm-sent", methods=["POST"])
 def api_mark_dm_sent():
+    global eq
     d = request.json
+    row = int(d["row"])
     col = ec.get("Status")
     if col:
-        ws_e.update_cell(int(d["row"]), col, "DM Sent")
+        ws_e.update_cell(row, col, "DM Sent")
+    eq = [item for item in eq if item["row"] != row]
     return jsonify(ok=True)
 
 @app.route("/api/save-comment", methods=["POST"])
