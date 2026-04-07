@@ -204,7 +204,9 @@ def api_reload_eq():
 @app.route("/api/mark-dm-sent", methods=["POST"])
 def api_mark_dm_sent():
     d = request.json
-    ws_e.update_cell(int(d["row"]), 8, "DM Sent")  # column H
+    col = ec.get("Status")
+    if col:
+        ws_e.update_cell(int(d["row"]), col, "DM Sent")
     return jsonify(ok=True)
 
 @app.route("/api/save-comment", methods=["POST"])
