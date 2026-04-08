@@ -799,12 +799,14 @@ def main():
     RENDER_URL = os.environ.get("RENDER_EXTERNAL_URL")
     if RENDER_URL:
         def _ping():
+            # Wait for Flask to finish starting, then ping immediately
+            time.sleep(5)
             while True:
-                time.sleep(840)  # every 14 minutes
                 try:
                     requests.get(RENDER_URL, timeout=10)
                 except Exception:
                     pass
+                time.sleep(840)  # every 14 minutes
         threading.Thread(target=_ping, daemon=True).start()
 
     app.run(host="0.0.0.0", port=PORT, debug=False, use_reloader=False)
