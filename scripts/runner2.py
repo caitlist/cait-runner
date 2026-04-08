@@ -10,6 +10,7 @@ URL   : http://localhost:5564
 """
 
 import os, json, time, datetime, threading
+import requests
 import gspread
 from flask import Flask, jsonify, request, render_template_string
 from google.oauth2.service_account import Credentials
@@ -793,6 +794,18 @@ def main():
     print(f"Validation     : {len(vq)} accounts pending")
     print(f"Email DM queue : {len(eq)} accounts")
     print(f"Opening http://localhost:{PORT} ...")
+
+    # Keep-alive ping — prevents Render free tier from sleeping
+    RENDER_URL = os.environ.get("RENDER_EXTERNAL_URL")
+    if RENDER_URL:
+        def _ping():
+            while True:
+                time.sleep(840)  # every 14 minutes
+                try:
+                    requests.get(RENDER_URL, timeout=10)
+                except Exception:
+                    pass
+        threading.Thread(target=_ping, daemon=True).start()
 
     app.run(host="0.0.0.0", port=PORT, debug=False, use_reloader=False)
 
