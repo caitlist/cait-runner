@@ -34,13 +34,12 @@ app = Flask(__name__)
 def make_gc():
     creds_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
     if creds_json:
-        import tempfile
-        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
-            f.write(creds_json)
-            tmp_path = f.name
-        creds = Credentials.from_service_account_file(
-            tmp_path, scopes=["https://www.googleapis.com/auth/spreadsheets"])
-        os.unlink(tmp_path)
+        info = json.loads(creds_json)
+        # Fix private key newlines if mangled by env var storage
+        if "private_key" in info:
+            info["private_key"] = info["private_key"].replace("\\n", "\n")
+        creds = Credentials.from_service_account_info(
+            info, scopes=["https://www.googleapis.com/auth/spreadsheets"])
     else:
         creds = Credentials.from_service_account_file(
             CREDS_PATH, scopes=["https://www.googleapis.com/auth/spreadsheets"])
