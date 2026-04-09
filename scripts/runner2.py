@@ -343,6 +343,7 @@ textarea.readonly-look{background:#f9f9f9;color:#888}
   <button class="tab on" id="tC" onclick="goTab('c')">Comments</button>
   <button class="tab"    id="tV" onclick="goTab('v')">Validation</button>
   <button class="tab"    id="tE" onclick="goTab('e')">Email</button>
+  <button class="tab"    id="tS" onclick="goTab('s')">Share Post</button>
 </div>
 <div class="hdr">
   <div class="bar"><div class="fill" id="fill" style="width:0%"></div></div>
@@ -359,6 +360,7 @@ var TAB='c';
 var CQ=[], CDone=new Set(), CIdx=0, COrigs={};
 var VQ=[], VDone=new Set(), VIdx=0, VQLoaded=false;
 var EQ=[], EDone=new Set(), EIdx=0, EQLoaded=false;
+var SShared=new Set();
 var poll=null;
 
 // Boot: load Comments immediately, then Validation + Email in background
@@ -414,7 +416,9 @@ function goTab(t){
   document.getElementById('tC').classList.toggle('on', t === 'c');
   document.getElementById('tV').classList.toggle('on', t === 'v');
   document.getElementById('tE').classList.toggle('on', t === 'e');
+  document.getElementById('tS').classList.toggle('on', t === 's');
   if(t === 'c'){ showC(CIdx); return; }
+  if(t === 's'){ showS(); return; }
   if(t === 'v'){
     if(!VQLoaded){
       document.getElementById('app').innerHTML =
@@ -442,8 +446,8 @@ function goTab(t){
 }
 
 function prog(){
-  var done = TAB === 'c' ? CDone.size : TAB === 'v' ? VDone.size : EDone.size;
-  var tot  = TAB === 'c' ? CQ.length  : TAB === 'v' ? VQ.length  : EQ.length;
+  var done = TAB === 'c' ? CDone.size : TAB === 'v' ? VDone.size : TAB === 'e' ? EDone.size : SShared.size;
+  var tot  = TAB === 'c' ? CQ.length  : TAB === 'v' ? VQ.length  : TAB === 'e' ? EQ.length  : CQ.length;
   var rem  = tot - done;
   document.getElementById('fill').style.width = (tot > 0 ? done/tot*100 : 0) + '%';
   document.getElementById('pt').textContent =
@@ -752,6 +756,71 @@ function eSkip(idx){
   var n = EQ.length, next = (idx + 1) % n, tries = 0;
   while(EDone.has(EQ[next].row) && tries++ < n) next = (next + 1) % n;
   if(next !== idx) showE(next);
+}
+
+// ── SHARE POST TAB ─────────────────────────────────────────────────────────────
+function showS(){
+  var postUrl = document.getElementById('_surl') ? document.getElementById('_surl').value : '';
+  var shared = SShared.size;
+  var tot = CQ.length;
+
+  var rows = '';
+  CQ.forEach(function(it, idx){
+    var done = SShared.has(it.row);
+    rows +=
+      '<div class="share-row" id="srow-' + it.row + '" style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f0f0f0">' +
+        '<div style="flex:1;font-size:15px;font-weight:600;color:' + (done ? '#aaa' : '#1d1d1f') + '">' +
+          (done ? '<span style="color:#34c759;margin-right:6px">\u2713</span>' : '') +
+          e(it.handle) +
+        '</div>' +
+        '<button class="btn ' + (done ? 'gray' : 'blue') + '" style="flex:0 0 auto;min-width:90px;padding:8px 12px;font-size:13px" onclick="sCopy(' + idx + ')">' +
+          (done ? 'Copied \u2713' : 'Copy') +
+        '</button>' +
+        '<button class="btn ' + (done ? 'gray' : 'green') + '" style="flex:0 0 auto;min-width:80px;padding:8px 12px;font-size:13px" onclick="sDone(' + it.row + ',' + idx + ')">' +
+          (done ? 'Done' : 'Done') +
+        '</button>' +
+      '</div>';
+  });
+
+  if(CQ.length === 0){
+    rows = '<p style="color:#bbb;text-align:center;padding:24px">No accounts in Comments queue yet.</p>';
+  }
+
+  document.getElementById('app').innerHTML =
+    '<div class="card" style="max-width:720px">' +
+    '<div style="margin-bottom:16px">' +
+      '<div class="lbl" style="margin-bottom:6px">Post URL to share</div>' +
+      '<div style="display:flex;gap:8px">' +
+        '<input id="_surl" type="text" placeholder="Paste your post URL here..." value="' + e(postUrl) + '" ' +
+          'style="flex:1;border:1.5px solid #e0e0e0;border-radius:10px;padding:10px;font-size:13px;font-family:inherit" ' +
+          'oninput="document.getElementById(\'_surlbtn\').style.display=this.value?\'block\':\'none\'">' +
+        '<button id="_surlbtn" class="btn blue" style="flex:0 0 auto;min-width:100px;display:' + (postUrl ? 'block' : 'none') + '" ' +
+          'onclick="openURL(document.getElementById(\'_surl\').value)">Open Post \u2197</button>' +
+      '</div>' +
+      '<div style="font-size:12px;color:#aaa;margin-top:6px">Go to this post on Instagram, click Share, then use Copy below to paste the username.</div>' +
+    '</div>' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">' +
+      '<div style="font-size:13px;color:#888">' + shared + ' of ' + tot + ' shared</div>' +
+      '<button class="refresh-btn" onclick="SShared=new Set();showS()">Reset all</button>' +
+    '</div>' +
+    rows +
+    '</div>';
+
+  prog();
+}
+
+async function sCopy(idx){
+  var it = CQ[idx];
+  await navigator.clipboard.writeText(it.handle);
+  toast('Copied @' + it.handle);
+  // Auto-mark done after copy
+  SShared.add(it.row);
+  showS();
+}
+
+function sDone(row, idx){
+  SShared.add(row);
+  showS();
 }
 
 // ── shared ─────────────────────────────────────────────────────────────────────
