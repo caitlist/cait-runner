@@ -49,6 +49,26 @@ def open_sheets(gc):
     ss = gc.open_by_key(SHEET_ID)
     return ss.worksheet("COMMENTS"), ss.worksheet("Medical Mom DM Outreach"), ss.worksheet("Email")
 
+def read_share(ws):
+    """Load ALL COMMENTS rows for Share Post tab — no Runner Status filter."""
+    rows = ws.get_all_values()
+    if not rows:
+        return []
+    hdrs = [h.strip() for h in rows[0]]
+    hi   = {h: i for i, h in enumerate(hdrs)}
+    def g(row, col):
+        i = hi.get(col)
+        return row[i].strip() if i is not None and i < len(row) else ""
+    queue = []
+    for i, row in enumerate(rows[1:], 2):
+        handle = g(row, "Handle")
+        if not handle:
+            continue
+        ig = g(row, "IG Profile Link") or \
+             "https://www.instagram.com/{}/".format(handle.lstrip("@").lower())
+        queue.append({"row": i, "handle": handle, "ig_link": ig})
+    return queue
+
 def read_comments(ws):
     rows = ws.get_all_values()
     if not rows:
@@ -198,6 +218,20 @@ def api_reload_eq():
         _, _, ws_e = open_sheets(gc_client)
         eq, ec     = read_email(ws_e)
         return jsonify({"ok": True, "count": len(eq)})
+    except Exception as ex:
+        return jsonify({"ok": False, "error": str(ex)})
+
+@app.route("/api/sq")
+def api_sq():
+    return jsonify(sq)
+
+@app.route("/api/reload-sq")
+def api_reload_sq():
+    global sq, ws_c
+    try:
+        ws_c, _, _ = open_sheets(gc_client)
+        sq         = read_share(ws_c)
+        return jsonify({"ok": True, "count": len(sq)})
     except Exception as ex:
         return jsonify({"ok": False, "error": str(ex)})
 
@@ -360,7 +394,7 @@ var TAB='c';
 var CQ=[], CDone=new Set(), CIdx=0, COrigs={};
 var VQ=[], VDone=new Set(), VIdx=0, VQLoaded=false;
 var EQ=[], EDone=new Set(), EIdx=0, EQLoaded=false;
-var SShared=new Set();
+var SQ=[];
 var poll=null;
 
 // Boot: load Comments immediately, then Validation + Email in background
@@ -386,6 +420,11 @@ async function boot(){
   try {
     var er = await fetch('/api/eq').then(function(r){ return r.json(); });
     EQ = er; EQLoaded = true;
+  } catch(err) {}
+  // Load Share Post silently in background
+  try {
+    var sr = await fetch('/api/sq').then(function(r){ return r.json(); });
+    SQ = sr;
   } catch(err) {}
 }
 
@@ -446,8 +485,8 @@ function goTab(t){
 }
 
 function prog(){
-  var done = TAB === 'c' ? CDone.size : TAB === 'v' ? VDone.size : TAB === 'e' ? EDone.size : SShared.size;
-  var tot  = TAB === 'c' ? CQ.length  : TAB === 'v' ? VQ.length  : TAB === 'e' ? EQ.length  : CQ.length;
+  var done = TAB === 'c' ? CDone.size : TAB === 'v' ? VDone.size : TAB === 'e' ? EDone.size : 0;
+  var tot  = TAB === 'c' ? CQ.length  : TAB === 'v' ? VQ.length  : TAB === 'e' ? EQ.length  : SQ.length;
   var rem  = tot - done;
   document.getElementById('fill').style.width = (tot > 0 ? done/tot*100 : 0) + '%';
   document.getElementById('pt').textContent =
@@ -761,29 +800,26 @@ function eSkip(idx){
 // ── SHARE POST TAB ─────────────────────────────────────────────────────────────
 function showS(){
   var postUrl = document.getElementById('_surl') ? document.getElementById('_surl').value : '';
-  var shared = SShared.size;
-  var tot = CQ.length;
+  var tot = SQ.length;
 
   var rows = '';
-  CQ.forEach(function(it, idx){
-    var done = SShared.has(it.row);
+  SQ.forEach(function(it, idx){
     rows +=
       '<div class="share-row" id="srow-' + it.row + '" style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f0f0f0">' +
-        '<div style="flex:1;font-size:15px;font-weight:600;color:' + (done ? '#aaa' : '#1d1d1f') + '">' +
-          (done ? '<span style="color:#34c759;margin-right:6px">\u2713</span>' : '') +
+        '<div style="flex:1;font-size:15px;font-weight:600;color:#1d1d1f">' +
           e(it.handle) +
         '</div>' +
-        '<button class="btn ' + (done ? 'gray' : 'blue') + '" style="flex:0 0 auto;min-width:90px;padding:8px 12px;font-size:13px" onclick="sCopy(' + idx + ')">' +
-          (done ? 'Copied \u2713' : 'Copy') +
+        '<button class="btn blue" style="flex:0 0 auto;min-width:90px;padding:8px 12px;font-size:13px" onclick="sCopy(' + idx + ')">' +
+          'Copy' +
         '</button>' +
-        '<button class="btn ' + (done ? 'gray' : 'green') + '" style="flex:0 0 auto;min-width:80px;padding:8px 12px;font-size:13px" onclick="sDone(' + it.row + ',' + idx + ')">' +
-          (done ? 'Done' : 'Done') +
+        '<button class="btn green" style="flex:0 0 auto;min-width:80px;padding:8px 12px;font-size:13px" onclick="sDone(' + idx + ')">' +
+          'Done' +
         '</button>' +
       '</div>';
   });
 
-  if(CQ.length === 0){
-    rows = '<p style="color:#bbb;text-align:center;padding:24px">No accounts in Comments queue yet.</p>';
+  if(SQ.length === 0){
+    rows = '<p style="color:#bbb;text-align:center;padding:24px">All shared! \u2713</p>';
   }
 
   document.getElementById('app').innerHTML =
@@ -797,11 +833,11 @@ function showS(){
         '<button id="_surlbtn" class="btn blue" style="flex:0 0 auto;min-width:100px;display:' + (postUrl ? 'block' : 'none') + '" ' +
           'onclick="openURL(document.getElementById(\'_surl\').value)">Open Post \u2197</button>' +
       '</div>' +
-      '<div style="font-size:12px;color:#aaa;margin-top:6px">Go to this post on Instagram, click Share, then use Copy below to paste the username.</div>' +
+      '<div style="font-size:12px;color:#aaa;margin-top:6px">Go to this post on Instagram, click Share, then use Copy below to paste the username. Click Done to remove from this list.</div>' +
     '</div>' +
     '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">' +
-      '<div style="font-size:13px;color:#888">' + shared + ' of ' + tot + ' shared</div>' +
-      '<button class="refresh-btn" onclick="SShared=new Set();showS()">Reset all</button>' +
+      '<div style="font-size:13px;color:#888">' + tot + ' remaining</div>' +
+      '<button class="refresh-btn" onclick="reloadSQ()">&#8635; Refresh</button>' +
     '</div>' +
     rows +
     '</div>';
@@ -810,17 +846,26 @@ function showS(){
 }
 
 async function sCopy(idx){
-  var it = CQ[idx];
+  var it = SQ[idx];
   await navigator.clipboard.writeText(it.handle);
   toast('Copied @' + it.handle);
-  // Auto-mark done after copy
-  SShared.add(it.row);
+}
+
+function sDone(idx){
+  SQ.splice(idx, 1);
   showS();
 }
 
-function sDone(row, idx){
-  SShared.add(row);
-  showS();
+async function reloadSQ(){
+  try {
+    var r = await fetch('/api/reload-sq').then(function(x){ return x.json(); });
+    if(r.ok){
+      var sr = await fetch('/api/sq').then(function(x){ return x.json(); });
+      SQ = sr;
+      showS();
+      toast('Share list refreshed');
+    }
+  } catch(err) { toast('Reload failed', true); }
 }
 
 // ── shared ─────────────────────────────────────────────────────────────────────
@@ -849,7 +894,7 @@ boot();
 # ── Main ────────────────────────────────────────────────────────────────────────
 
 def main():
-    global gc_client, ws_c, ws_v, ws_e, cq, cc, vq, vc, eq, ec
+    global gc_client, ws_c, ws_v, ws_e, cq, cc, vq, vc, eq, ec, sq
 
     print("Connecting to Google Sheets...")
     gc_client          = make_gc()
@@ -857,10 +902,12 @@ def main():
     cq, cc             = read_comments(ws_c)
     vq, vc             = read_validation(ws_v)
     eq, ec             = read_email(ws_e)
+    sq                 = read_share(ws_c)
 
     print(f"Comments queue : {len(cq)} accounts")
     print(f"Validation     : {len(vq)} accounts pending")
     print(f"Email DM queue : {len(eq)} accounts")
+    print(f"Share Post     : {len(sq)} accounts")
     print(f"Opening http://localhost:{PORT} ...")
 
     # Keep-alive ping — prevents Render free tier from sleeping
