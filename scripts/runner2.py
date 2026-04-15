@@ -127,11 +127,12 @@ def read_email(ws):
         ig = g(row, "IG Profile Link") or \
              "https://www.instagram.com/{}/".format(handle.lower())
         queue.append({
-            "row":    i,
-            "handle": handle,
-            "ig_link": ig,
-            "email":  g(row, "Emails"),
-            "notes":  g(row, "Notes"),
+            "row":       i,
+            "handle":    handle,
+            "ig_link":   ig,
+            "email":     g(row, "Emails"),
+            "notes":     g(row, "Notes"),
+            "diagnosis": g(row, "Diagnosis"),
         })
     col_map = {h: j + 1 for j, h in enumerate(hdrs)}
     return queue, col_map
@@ -760,8 +761,9 @@ function showE(idx){
     '</div>' +
     (it.email ? '<div style="font-size:13px;color:#888;margin-bottom:10px">&#9993; ' + e(it.email) + '</div>' : '') +
     (it.notes ? '<div style="font-size:12px;color:#aaa;margin-bottom:12px">' + e(it.notes) + '</div>' : '') +
-    '<div style="margin-bottom:14px">' +
+    '<div style="margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
       '<button class="opbtn" onclick="openURL(\'' + e(it.ig_link) + '\')">&#128279; Open Profile &#8599;</button>' +
+      (it.diagnosis ? '<span style="font-size:13px;color:#fff;background:#5a6a8a;padding:4px 10px;border-radius:12px;font-weight:600">' + e(it.diagnosis) + '</span>' : '') +
     '</div>' +
     '<div class="brow">' +
       '<button class="btn green" onclick="eDone(' + idx + ')" ' + (done ? 'disabled' : '') + '>\u2713 DM Sent</button>' +
