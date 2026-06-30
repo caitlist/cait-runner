@@ -101,6 +101,7 @@ def read_comments(ws):
             "post_url":  g(row, "Post URL"),
             "caption":   g(row, "Post Caption")[:800],
             "comment":   comment,
+            "dm1":       g(row, "DM Part 1"),
             "sensitive": "[SENSITIVE" in g(row, "Notes"),
         })
 
@@ -536,7 +537,8 @@ function showC(idx){
 
     '<div class="brow">' +
       '<button class="btn purple" onclick="openIG(' + idx + ')">Open Profile (DM)</button>' +
-      '<button class="btn blue"   onclick="copyComment(' + idx + ')">Copy Comment</button>' +
+      '<button class="btn teal"   onclick="copyDM1(' + idx + ')">Copy DM 1</button>' +
+      '<button class="btn blue"   onclick="copyDM2()">Copy DM 2</button>' +
     '</div>' +
     (!posted ?
     '<div class="brow">' +
@@ -579,10 +581,18 @@ async function saveCommentSilent(idx){
   CQ[idx].comment = t;
 }
 
-async function copyComment(idx){
-  await saveCommentSilent(idx);
-  var t = (document.getElementById('com-area') || {}).value;
-  if(t){ await navigator.clipboard.writeText(t); toast('Copied!'); }
+async function copyDM1(idx){
+  var it = CQ[idx]; if(!it) return;
+  var t = it.dm1 || '';
+  if(!t){ toast('No DM Part 1 for this account', true); return; }
+  await navigator.clipboard.writeText(t);
+  toast('Copied DM Part 1!');
+}
+
+async function copyDM2(){
+  var t = "We'd truly love to invite you to try CAIT. Hearing how it's helped other medical families has meant the world to us, and we'd be honored to see if it could make even a small difference for yours. If you're open to it, we'd also love to hear your honest feedback and collaborate with you along the way, we provide an honorarium for those who participate.\n\nNo pressure at all, we just hope CAIT can be one less thing for you to worry about. Sending you and your family so much love. 💙";
+  await navigator.clipboard.writeText(t);
+  toast('Copied DM Part 2!');
 }
 
 function openIG(idx){ window.open(CQ[idx].ig_link, '_blank'); }
