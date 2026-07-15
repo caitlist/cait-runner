@@ -9,7 +9,7 @@ Start : python scripts/runner2.py
 URL   : http://localhost:5564
 """
 
-import os, json, time, datetime, threading
+import os, re, json, time, datetime, threading
 import requests
 import gspread
 from flask import Flask, jsonify, request, render_template_string
@@ -76,10 +76,11 @@ def read_comments(ws):
     hdrs = [h.strip() for h in rows[0]]
     hi   = {h: i for i, h in enumerate(hdrs)}
 
-    if "Runner Status" not in hi:
-        ws.update_cell(1, len(hdrs) + 1, "Runner Status")
-        hdrs.append("Runner Status")
-        hi["Runner Status"] = len(hdrs) - 1
+    for needed in ["Runner Status", "Approval", "Evidence"]:
+        if needed not in hi:
+            ws.update_cell(1, len(hdrs) + 1, needed)
+            hdrs.append(needed)
+            hi[needed] = len(hdrs) - 1
 
     def g(row, col):
         i = hi.get(col)
@@ -103,6 +104,8 @@ def read_comments(ws):
             "comment":   comment,
             "dm1":       g(row, "DM Part 1"),
             "sensitive": "[SENSITIVE" in g(row, "Notes"),
+            "approval":  g(row, "Approval"),
+            "evidence":  g(row, "Evidence")[:600],
         })
 
     col_map = {h: j + 1 for j, h in enumerate(hdrs)}
@@ -279,6 +282,139 @@ def api_mark_validation():
         ws_v.update_cell(int(d["row"]), col, d["verdict"])
     return jsonify(ok=True)
 
+# ── Add Links (mobile intake) ───────────────────────────────────────────────────
+
+IG_RESERVED_PATHS = {"p", "reel", "reels", "tv", "stories", "explore", "accounts",
+                     "direct", "about", "legal", "developer", "web", "share", "invites"}
+
+def parse_ig_links(text):
+    """Split pasted text into profile handles and post URLs."""
+    profiles, posts = [], []
+    for m in re.finditer(r'https?://(?:www\.)?instagram\.com/([A-Za-z0-9._]+)(/[^\s]*)?', text):
+        seg, rest = m.group(1), (m.group(2) or "")
+        if seg.lower() in IG_RESERVED_PATHS:
+            posts.append("https://www.instagram.com/{}{}".format(seg, rest.split("?")[0]))
+        else:
+            h = seg.strip(".").strip()
+            if h:
+                profiles.append(h)
+    return profiles, posts
+
+@app.route("/api/add-links", methods=["POST"])
+def api_add_links():
+    global ws_c
+    d = request.json or {}
+    profiles, post_urls = parse_ig_links(d.get("links", ""))
+    if not profiles and not post_urls:
+        return jsonify(ok=False, error="No Instagram links found in the text")
+    try:
+        ws_c, _, _ = open_sheets(gc_client)
+        rows = ws_c.get_all_values()
+        if not rows:
+            return jsonify(ok=False, error="COMMENTS tab has no header row")
+        hdrs = [h.strip() for h in rows[0]]
+        hi   = {h: i for i, h in enumerate(hdrs)}
+        existing = set()
+        for r in rows[1:]:
+            ih = hi.get("Handle", 0)
+            if ih < len(r) and r[ih].strip():
+                existing.add(r[ih].strip().lstrip("@").lower())
+            iu = hi.get("Post URL")
+            if iu is not None and iu < len(r) and r[iu].strip():
+                existing.add(r[iu].strip().rstrip("/").lower())
+        width = len(hdrs)
+        new_rows, added, skipped = [], [], 0
+        seen_now = set()
+        for h in profiles:
+            key = h.lower()
+            if key in existing or key in seen_now:
+                skipped += 1; continue
+            seen_now.add(key)
+            row = [""] * width
+            if "Handle" in hi:
+                row[hi["Handle"]] = h
+            if "IG Profile Link" in hi:
+                row[hi["IG Profile Link"]] = "https://www.instagram.com/{}/".format(h)
+            new_rows.append(row); added.append("@" + h)
+        for u in post_urls:
+            key = u.rstrip("/").lower()
+            if key in existing or key in seen_now:
+                skipped += 1; continue
+            seen_now.add(key)
+            row = [""] * width
+            if "Post URL" in hi:
+                row[hi["Post URL"]] = u
+            elif "IG Profile Link" in hi:
+                row[hi["IG Profile Link"]] = u
+            new_rows.append(row); added.append(u.replace("https://www.instagram.com", "ig.com"))
+        if new_rows:
+            ws_c.append_rows(new_rows, value_input_option="USER_ENTERED")
+        return jsonify(ok=True, added=len(new_rows), skipped=skipped, items=added)
+    except Exception as ex:
+        return jsonify(ok=False, error=str(ex))
+
+# ── Review / Approval ───────────────────────────────────────────────────────────
+
+@app.route("/api/save-review", methods=["POST"])
+def api_save_review():
+    d   = request.json
+    row = int(d["row"])
+    cells = []
+    if cc.get("Generated Comment") and d.get("comment") is not None:
+        cells.append(gspread.Cell(row, cc["Generated Comment"], d["comment"].strip()))
+    if cc.get("DM Part 1") and d.get("dm1") is not None:
+        cells.append(gspread.Cell(row, cc["DM Part 1"], d["dm1"].strip()))
+    if cells:
+        ws_c.update_cells(cells, value_input_option="USER_ENTERED")
+    return jsonify(ok=True)
+
+@app.route("/api/approve", methods=["POST"])
+def api_approve():
+    d   = request.json
+    col = cc.get("Approval")
+    if col:
+        ws_c.update_cell(int(d["row"]), col, "Approved" if d.get("approved", True) else "")
+    return jsonify(ok=True)
+
+@app.route("/api/approve-all", methods=["POST"])
+def api_approve_all():
+    d    = request.json or {}
+    rows = d.get("rows", [])
+    col  = cc.get("Approval")
+    if col and rows:
+        cells = [gspread.Cell(int(r), col, "Approved") for r in rows]
+        ws_c.update_cells(cells, value_input_option="USER_ENTERED")
+    return jsonify(ok=True, count=len(rows))
+
+# ── Runner Config (share post URL — read by the local Playwright session) ───────
+
+def get_config_ws():
+    ss = gc_client.open_by_key(SHEET_ID)
+    try:
+        return ss.worksheet("Runner Config")
+    except gspread.exceptions.WorksheetNotFound:
+        w = ss.add_worksheet("Runner Config", rows=10, cols=3)
+        w.update("A1", [["Share Post URL"]])
+        return w
+
+@app.route("/api/set-share-url", methods=["POST"])
+def api_set_share_url():
+    d = request.json or {}
+    try:
+        w = get_config_ws()
+        w.update("B1", [[d.get("url", "").strip()]])
+        return jsonify(ok=True)
+    except Exception as ex:
+        return jsonify(ok=False, error=str(ex))
+
+@app.route("/api/get-share-url")
+def api_get_share_url():
+    try:
+        w = get_config_ws()
+        return jsonify(ok=True, url=w.acell("B1").value or "")
+    except Exception as ex:
+        return jsonify(ok=False, error=str(ex))
+
 @app.route("/api/request-action", methods=["POST"])
 def api_request_action():
     d   = request.json
@@ -323,8 +459,8 @@ PAGE = r"""<!DOCTYPE html>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f7;min-height:100vh;padding:16px}
-.tabs{display:flex;gap:6px;justify-content:center;margin-bottom:12px}
-.tab{border:none;border-radius:20px;padding:8px 24px;font-size:14px;font-weight:600;cursor:pointer;background:#e0e0e0;color:#555}
+.tabs{display:flex;gap:6px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
+.tab{border:none;border-radius:20px;padding:8px 18px;font-size:14px;font-weight:600;cursor:pointer;background:#e0e0e0;color:#555}
 .tab.on{background:#007aff;color:#fff}
 .hdr{text-align:center;margin-bottom:12px}
 .bar{background:#e0e0e0;border-radius:8px;height:6px;max-width:360px;margin:6px auto;overflow:hidden}
@@ -377,6 +513,8 @@ textarea.readonly-look{background:#f9f9f9;color:#888}
 
 <div class="tabs">
   <button class="tab on" id="tC" onclick="goTab('c')">Comments</button>
+  <button class="tab"    id="tR" onclick="goTab('r')">Review</button>
+  <button class="tab"    id="tA" onclick="goTab('a')">Add Links</button>
   <button class="tab"    id="tV" onclick="goTab('v')">Validation</button>
   <button class="tab"    id="tE" onclick="goTab('e')">Email</button>
   <button class="tab"    id="tS" onclick="goTab('s')">Share Post</button>
@@ -428,6 +566,7 @@ async function boot(){
     var sr = await fetch('/api/sq').then(function(r){ return r.json(); });
     SQ = sr;
   } catch(err) {}
+  loadShareURL();
 }
 
 async function refreshQueue(){
@@ -455,10 +594,14 @@ async function refreshQueue(){
 function goTab(t){
   TAB = t;
   document.getElementById('tC').classList.toggle('on', t === 'c');
+  document.getElementById('tR').classList.toggle('on', t === 'r');
+  document.getElementById('tA').classList.toggle('on', t === 'a');
   document.getElementById('tV').classList.toggle('on', t === 'v');
   document.getElementById('tE').classList.toggle('on', t === 'e');
   document.getElementById('tS').classList.toggle('on', t === 's');
   if(t === 'c'){ showC(CIdx); return; }
+  if(t === 'r'){ showR(); return; }
+  if(t === 'a'){ showA(); return; }
   if(t === 's'){ showS(); return; }
   if(t === 'v'){
     if(!VQLoaded){
@@ -487,6 +630,18 @@ function goTab(t){
 }
 
 function prog(){
+  if(TAB === 'a'){
+    document.getElementById('fill').style.width = '0%';
+    document.getElementById('pt').textContent = 'Paste Instagram links below';
+    return;
+  }
+  if(TAB === 'r'){
+    var rp = CQ.filter(function(x){ return !CDone.has(x.row); });
+    var ra = rp.filter(function(x){ return x.approval === 'Approved'; }).length;
+    document.getElementById('fill').style.width = (rp.length ? ra/rp.length*100 : 0) + '%';
+    document.getElementById('pt').textContent = ra + ' of ' + rp.length + ' approved';
+    return;
+  }
   var done = TAB === 'c' ? CDone.size : TAB === 'v' ? VDone.size : TAB === 'e' ? EDone.size : 0;
   var tot  = TAB === 'c' ? CQ.length  : TAB === 'v' ? VQ.length  : TAB === 'e' ? EQ.length  : SQ.length;
   var rem  = tot - done;
@@ -878,6 +1033,184 @@ async function reloadSQ(){
       toast('Share list refreshed');
     }
   } catch(err) { toast('Reload failed', true); }
+}
+
+// ── REVIEW TAB ─────────────────────────────────────────────────────────────────
+var ShareURL = '';
+
+async function loadShareURL(){
+  try {
+    var r = await fetch('/api/get-share-url').then(function(x){ return x.json(); });
+    if(r.ok) ShareURL = r.url || '';
+  } catch(err) {}
+}
+
+function evHTML(ev){
+  if(!ev) return '';
+  var safe = e(ev).replace(/(https?:\/\/[^\s]+)/g,
+    '<a href="$1" target="_blank" style="color:#007aff">post ↗</a>');
+  return '<div style="background:#f4f8ff;border:1px solid #d8e6ff;border-radius:10px;padding:9px 11px;font-size:12px;color:#456;line-height:1.5;margin-bottom:10px"><b style="color:#007aff">Why it qualified:</b><br>' + safe + '</div>';
+}
+
+function showR(){
+  var pend = CQ.filter(function(x){ return !CDone.has(x.row); });
+  prog();
+  if(pend.length === 0){ allDone('Nothing to review — queue is empty.'); return; }
+
+  var cards = '';
+  pend.forEach(function(it){
+    var approved = it.approval === 'Approved';
+    cards +=
+      '<div class="card" style="margin-bottom:14px;max-width:680px" id="rcard-' + it.row + '">' +
+      '<div class="hr2">' +
+        '<div class="hn" style="font-size:17px">' + e(it.handle) + '</div>' +
+        (approved ? '<span class="badge bg">✓ Approved</span>' : '<span class="badge bo">Pending</span>') +
+        (it.sensitive ? '<span class="badge br">⚠ SENSITIVE</span>' : '') +
+      '</div>' +
+      evHTML(it.evidence) +
+      '<div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">' +
+        (it.post_url ? '<button class="opbtn" style="margin-bottom:0" onclick="openURL(\'' + e(it.post_url) + '\')">&#128279; Post ↗</button>' : '') +
+        '<button class="opbtn" style="margin-bottom:0" onclick="openURL(\'' + e(it.ig_link) + '\')">&#128100; Profile ↗</button>' +
+      '</div>' +
+      '<div class="section" style="margin-bottom:10px">' +
+        '<div class="lbl">Comment</div>' +
+        '<textarea id="rc-' + it.row + '" style="min-height:80px" onblur="rSave(' + it.row + ')">' + e(it.comment) + '</textarea>' +
+      '</div>' +
+      '<div class="section" style="margin-bottom:10px">' +
+        '<div class="lbl">DM 1</div>' +
+        '<textarea id="rd-' + it.row + '" style="min-height:110px" onblur="rSave(' + it.row + ')">' + e(it.dm1 || '') + '</textarea>' +
+      '</div>' +
+      '<div class="brow" style="margin-bottom:0">' +
+        (approved
+          ? '<button class="btn gray"  onclick="rApprove(' + it.row + ', false)">Un-approve</button>'
+          : '<button class="btn green" onclick="rApprove(' + it.row + ', true)">✓ Approve</button>') +
+      '</div>' +
+      '</div>';
+  });
+
+  document.getElementById('app').innerHTML =
+    '<div class="card" style="margin-bottom:14px;max-width:680px">' +
+      '<div class="lbl" style="margin-bottom:6px">Post URL to share in DMs (once per batch)</div>' +
+      '<div style="display:flex;gap:8px;margin-bottom:12px">' +
+        '<input id="rsurl" type="text" placeholder="Paste post URL to share..." value="' + e(ShareURL) + '" ' +
+          'style="flex:1;border:1.5px solid #e0e0e0;border-radius:10px;padding:10px;font-size:13px;font-family:inherit">' +
+        '<button class="btn blue" style="flex:0 0 auto;min-width:70px" onclick="rSaveShareURL()">Save</button>' +
+      '</div>' +
+      '<div class="brow" style="margin-bottom:0">' +
+        '<button class="btn green" onclick="rApproveAll()">✓ Approve All (' + pend.length + ')</button>' +
+        '<button class="btn gray" style="flex:0 0 auto" onclick="rRefresh()">↻ Refresh</button>' +
+      '</div>' +
+    '</div>' + cards;
+}
+
+async function rSave(row){
+  var it = CQ.find(function(x){ return x.row === row; }); if(!it) return;
+  var c = (document.getElementById('rc-' + row) || {}).value;
+  var d = (document.getElementById('rd-' + row) || {}).value;
+  if(c === undefined && d === undefined) return;
+  if((c === undefined || c.trim() === it.comment) && (d === undefined || d.trim() === (it.dm1 || ''))) return;
+  try {
+    await fetch('/api/save-review', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({row: row, comment: c, dm1: d})});
+    if(c !== undefined) it.comment = c.trim();
+    if(d !== undefined) it.dm1 = d.trim();
+    toast('Saved');
+  } catch(err) { toast('Save failed', true); }
+}
+
+async function rApprove(row, state){
+  var it = CQ.find(function(x){ return x.row === row; }); if(!it) return;
+  await rSave(row);
+  try {
+    var r = await fetch('/api/approve', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({row: row, approved: state})});
+    if(!r.ok){ toast('Sheet update failed', true); return; }
+    it.approval = state ? 'Approved' : '';
+    toast(state ? 'Approved ✓' : 'Un-approved');
+    showR();
+  } catch(err) { toast('Failed', true); }
+}
+
+async function rApproveAll(){
+  var pend = CQ.filter(function(x){ return !CDone.has(x.row) && x.approval !== 'Approved'; });
+  if(pend.length === 0){ toast('Everything already approved'); return; }
+  if(!confirm('Approve all ' + pend.length + ' accounts? Playwright will post + DM all of them.')) return;
+  try {
+    var r = await fetch('/api/approve-all', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({rows: pend.map(function(x){ return x.row; })})});
+    var j = await r.json();
+    if(!j.ok && !j.count){ toast('Sheet update failed', true); return; }
+    pend.forEach(function(x){ x.approval = 'Approved'; });
+    toast('All approved ✓ (' + pend.length + ')');
+    showR();
+  } catch(err) { toast('Failed', true); }
+}
+
+async function rSaveShareURL(){
+  var v = (document.getElementById('rsurl') || {}).value || '';
+  try {
+    var r = await fetch('/api/set-share-url', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({url: v.trim()})});
+    var j = await r.json();
+    if(j.ok){ ShareURL = v.trim(); toast('Share URL saved'); }
+    else toast(j.error || 'Failed', true);
+  } catch(err) { toast('Failed', true); }
+}
+
+async function rRefresh(){
+  try {
+    var r = await fetch('/api/reload-cq').then(function(x){ return x.json(); });
+    if(!r.ok){ toast('Reload failed', true); return; }
+    var cr = await fetch('/api/cq').then(function(x){ return x.json(); });
+    CQ = cr;
+    CQ.forEach(function(x){ if(!(x.row in COrigs)) COrigs[x.row] = x.comment; });
+    await loadShareURL();
+    toast('Refreshed — ' + CQ.length + ' in queue');
+    showR();
+  } catch(err) { toast('Refresh failed', true); }
+}
+
+// ── ADD LINKS TAB ──────────────────────────────────────────────────────────────
+function showA(){
+  prog();
+  document.getElementById('app').innerHTML =
+    '<div class="card" style="max-width:680px">' +
+    '<div class="lbl" style="margin-bottom:6px">Paste Instagram links (profiles or posts, any amount)</div>' +
+    '<textarea id="alinks" style="min-height:160px;font-size:14px" placeholder="https://www.instagram.com/somehandle/\nhttps://www.instagram.com/reel/ABC123/\n..."></textarea>' +
+    '<div class="brow" style="margin-top:10px;margin-bottom:0">' +
+      '<button class="btn blue" id="abtn" onclick="aSubmit()">Add to Queue</button>' +
+    '</div>' +
+    '<div id="ares" style="margin-top:12px;font-size:13px;color:#555"></div>' +
+    '<div style="font-size:12px;color:#aaa;margin-top:10px">Profile links are added with the handle. Post/reel links are saved too — Claude resolves the account during the next batch run. Duplicates are skipped automatically.</div>' +
+    '</div>';
+}
+
+async function aSubmit(){
+  var ta = document.getElementById('alinks');
+  var btn = document.getElementById('abtn');
+  var txt = (ta && ta.value || '').trim();
+  if(!txt){ toast('Paste some links first', true); return; }
+  btn.disabled = true; btn.textContent = 'Adding...';
+  try {
+    var r = await fetch('/api/add-links', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({links: txt})});
+    var j = await r.json();
+    if(!j.ok){ toast(j.error || 'Failed', true); }
+    else {
+      toast('Added ' + j.added + (j.skipped ? ' (' + j.skipped + ' duplicates skipped)' : ''));
+      ta.value = '';
+      var res = document.getElementById('ares');
+      if(res && j.items && j.items.length){
+        res.innerHTML = '<b>Added:</b><br>' + j.items.map(function(x){ return e(x); }).join('<br>');
+      }
+    }
+  } catch(err) { toast('Request failed', true); }
+  btn.disabled = false; btn.textContent = 'Add to Queue';
 }
 
 // ── shared ─────────────────────────────────────────────────────────────────────
