@@ -491,6 +491,7 @@ textarea.readonly-look{background:#f9f9f9;color:#888}
 .red{background:#ff3b30;color:#fff}
 .purple{background:#5856d6;color:#fff}
 .teal{background:#30b0c7;color:#fff}
+.orange{background:#ff9500;color:#fff}
 .gray{background:#e8e8ed;color:#1d1d1f}
 .banner{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:13px;display:none;align-items:center;gap:10px}
 .banner.on{display:flex}
@@ -692,6 +693,7 @@ function showC(idx){
 
     '<div class="brow">' +
       '<button class="btn purple" onclick="openIG(' + idx + ')">Open Profile (DM)</button>' +
+      '<button class="btn orange" onclick="copyComment(' + idx + ')">Copy Comment</button>' +
       '<button class="btn teal"   onclick="copyDM1(' + idx + ')">Copy DM 1</button>' +
       '<button class="btn blue"   onclick="copyDM2()">Copy DM 2</button>' +
     '</div>' +
@@ -736,6 +738,14 @@ async function saveCommentSilent(idx){
   CQ[idx].comment = t;
 }
 
+async function copyComment(idx){
+  var it = CQ[idx]; if(!it) return;
+  var t = (document.getElementById('com-area') || {}).value || it.comment || '';
+  if(!t){ toast('No comment for this account', true); return; }
+  await navigator.clipboard.writeText(t);
+  toast('Copied Comment!');
+}
+
 async function copyDM1(idx){
   var it = CQ[idx]; if(!it) return;
   var t = it.dm1 || '';
@@ -745,7 +755,7 @@ async function copyDM1(idx){
 }
 
 async function copyDM2(){
-  var t = "We'd truly love to invite you to try CAIT. Hearing how it's helped other medical families has meant the world to us, and we'd be honored to see if it could make even a small difference for yours. If you're open to it, we'd also love to hear your honest feedback and collaborate with you along the way, we provide an honorarium for those who participate.\n\nNo pressure at all, we just hope CAIT can be one less thing for you to worry about. Sending you and your family so much love. 💙";
+  var t = "No pressure at all, we'd love for you to give it a try whenever feels right. Hearing how CAIT has helped other medical families has meant the world to us, and we'd be honored to see if it could make even a small difference for yours too.\n\nIf you're open to it, we'd also love to hear your honest feedback and collaborate with you along the way, we provide an honorarium for those who participate. Sending you and your family so much love. \U0001F499\n\nThanks,\nMikha";
   await navigator.clipboard.writeText(t);
   toast('Copied DM Part 2!');
 }
