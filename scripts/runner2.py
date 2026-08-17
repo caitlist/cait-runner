@@ -76,7 +76,7 @@ def read_comments(ws):
     hdrs = [h.strip() for h in rows[0]]
     hi   = {h: i for i, h in enumerate(hdrs)}
 
-    for needed in ["Runner Status", "Approval", "Evidence"]:
+    for needed in ["Runner Status", "Approval", "Evidence", "DM Part 2"]:
         if needed not in hi:
             ws.update_cell(1, len(hdrs) + 1, needed)
             hdrs.append(needed)
@@ -103,6 +103,7 @@ def read_comments(ws):
             "caption":   g(row, "Post Caption")[:800],
             "comment":   comment,
             "dm1":       g(row, "DM Part 1"),
+            "dm2":       g(row, "DM Part 2"),
             "sensitive": "[SENSITIVE" in g(row, "Notes"),
             "approval":  g(row, "Approval"),
             "evidence":  g(row, "Evidence")[:600],
@@ -364,6 +365,8 @@ def api_save_review():
         cells.append(gspread.Cell(row, cc["Generated Comment"], d["comment"].strip()))
     if cc.get("DM Part 1") and d.get("dm1") is not None:
         cells.append(gspread.Cell(row, cc["DM Part 1"], d["dm1"].strip()))
+    if cc.get("DM Part 2") and d.get("dm2") is not None:
+        cells.append(gspread.Cell(row, cc["DM Part 2"], d["dm2"].strip()))
     if cells:
         ws_c.update_cells(cells, value_input_option="USER_ENTERED")
     return jsonify(ok=True)
@@ -695,7 +698,7 @@ function showC(idx){
       '<button class="btn purple" onclick="openIG(' + idx + ')">Open Profile (DM)</button>' +
       '<button class="btn orange" onclick="copyComment(' + idx + ')">Copy Comment</button>' +
       '<button class="btn teal"   onclick="copyDM1(' + idx + ')">Copy DM 1</button>' +
-      '<button class="btn blue"   onclick="copyDM2()">Copy DM 2</button>' +
+      '<button class="btn blue"   onclick="copyDM2(' + idx + ')">Copy DM 2</button>' +
     '</div>' +
     (!posted ?
     '<div class="brow">' +
@@ -754,8 +757,10 @@ async function copyDM1(idx){
   toast('Copied DM Part 1!');
 }
 
-async function copyDM2(){
-  var t = "No pressure at all, we'd love for you to give it a try whenever feels right. Hearing how CAIT has helped other medical families has meant the world to us, and we'd be honored to see if it could make even a small difference for yours too.\n\nIf you're open to it, we'd also love to hear your honest feedback and collaborate with you along the way, we provide an honorarium for those who participate. Sending you and your family so much love. \U0001F499\n\nThanks,\nMikha";
+async function copyDM2(idx){
+  var fallback = "No pressure at all, we'd love for you to give it a try whenever feels right. Hearing how CAIT has helped other medical families has meant the world to us, and we'd be honored to see if it could make even a small difference for yours too.\n\nIf you're open to it, we'd also love to hear your honest feedback and collaborate with you along the way, we provide an honorarium for those who participate. Sending you and your family so much love. \U0001F499\n\nThanks,\nMikha";
+  var it = (idx !== undefined) ? CQ[idx] : null;
+  var t = (it && it.dm2) ? it.dm2 : fallback;
   await navigator.clipboard.writeText(t);
   toast('Copied DM Part 2!');
 }
@@ -1090,6 +1095,10 @@ function showR(){
         '<div class="lbl">DM 1</div>' +
         '<textarea id="rd-' + it.row + '" style="min-height:110px" onblur="rSave(' + it.row + ')">' + e(it.dm1 || '') + '</textarea>' +
       '</div>' +
+      '<div class="section" style="margin-bottom:10px">' +
+        '<div class="lbl">DM 2</div>' +
+        '<textarea id="rd2-' + it.row + '" style="min-height:90px" onblur="rSave(' + it.row + ')">' + e(it.dm2 || '') + '</textarea>' +
+      '</div>' +
       '<div class="brow" style="margin-bottom:0">' +
         (approved
           ? '<button class="btn gray"  onclick="rApprove(' + it.row + ', false)">Un-approve</button>'
@@ -1115,16 +1124,20 @@ function showR(){
 
 async function rSave(row){
   var it = CQ.find(function(x){ return x.row === row; }); if(!it) return;
-  var c = (document.getElementById('rc-' + row) || {}).value;
-  var d = (document.getElementById('rd-' + row) || {}).value;
-  if(c === undefined && d === undefined) return;
-  if((c === undefined || c.trim() === it.comment) && (d === undefined || d.trim() === (it.dm1 || ''))) return;
+  var c  = (document.getElementById('rc-' + row) || {}).value;
+  var d  = (document.getElementById('rd-' + row) || {}).value;
+  var d2 = (document.getElementById('rd2-' + row) || {}).value;
+  if(c === undefined && d === undefined && d2 === undefined) return;
+  if((c === undefined || c.trim() === it.comment) &&
+     (d === undefined || d.trim() === (it.dm1 || '')) &&
+     (d2 === undefined || d2.trim() === (it.dm2 || ''))) return;
   try {
     await fetch('/api/save-review', {method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({row: row, comment: c, dm1: d})});
+      body: JSON.stringify({row: row, comment: c, dm1: d, dm2: d2})});
     if(c !== undefined) it.comment = c.trim();
     if(d !== undefined) it.dm1 = d.trim();
+    if(d2 !== undefined) it.dm2 = d2.trim();
     toast('Saved');
   } catch(err) { toast('Save failed', true); }
 }
